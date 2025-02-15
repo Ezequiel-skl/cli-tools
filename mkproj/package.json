@@ -11,13 +11,13 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
-    "mkproj": "node ./index.js"
+    "mkproj": "node ./src/index.js"
   },
   "keywords": [],
   "author": "Ezequiel-sk",
   "license": "MIT",
   "bin": {
-    "mkproj": "./index.js"
+    "mkproj": "./src/index.js"
   },
   "devDependencies": {
     "eslint": "^9.20.1",
@@ -31,6 +31,9 @@
     "vitest": "^3.0.5"
   },
   "dependencies": {
+    "cross-spawn": "^7.0.6",
+    "minimist": "^1.2.8",
+    "picocolors": "^1.1.1",
     "prompts": "^2.4.2"
   }
 }
