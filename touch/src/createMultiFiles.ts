@@ -2,8 +2,9 @@ import { rMultiFiles, rFiles, rExtension } from "./regex.ts"
 import { removeBrackets, pwd } from "./util.ts"
 import path from "node:path"
 import fsx from 'fs-extra/esm'
+import pc from "picocolors"
 
-export default function createMultiFiles(args: string) {
+export default async function createMultiFiles(args: string) {
   const multiFiles = args.match(rMultiFiles)
   
   if (multiFiles) {
@@ -19,11 +20,16 @@ export default function createMultiFiles(args: string) {
 
       const fileExtension = removeBrackets(extension[0])
 
-      for (const file of fileList) {
-        const filePath = path.join(pwd, `${file}${fileExtension}`)
-        
-        fsx.ensureFile(filePath)
-          .catch(err => console.log(err))
+      try {
+        await Promise.all(
+          fileList.map(async (file) => {
+            const filePath = path.join(pwd, `${file}${fileExtension}`);
+            await fsx.ensureFile(filePath);
+          })
+        )
+        console.log(pc.green("All files were created successfully 🎉"))
+      } catch (err) {
+        console.error(pc.red(`Error creating files ${fileList}`))
       }
     }
   }
