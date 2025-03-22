@@ -1,10 +1,10 @@
 #!/usr/bin/env bun
 
-import createMultiFiles from "./src/createMultiFiles.ts"
-import createIncrementalFiles from "./src/createIncrementalFiles.ts"
-import createFiles from "./src/createFiles.ts"
+import createMultiFiles from "@/createMultiFiles.ts"
+import createIncrementalFiles from "@/createIncrementalFiles.ts"
+import createFiles from "@/createFiles.ts"
 
-import { rMultiFiles, rIncrementalFiles, rOnlyFile } from "./src/regex.ts"
+import { rMultiFiles, rIncrementalFiles, rOnlyFile } from "@/regex.ts"
 
 const args = process.argv.splice(2)
 const argsStr = args.join(" ")
