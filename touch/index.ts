@@ -6,11 +6,15 @@ import createFiles from "@/createFiles.ts"
 
 import { rMultiFiles, rIncrementalFiles, rOnlyFile } from "@/regex.ts"
 
+import pc from "picocolors"
+
 const args = process.argv.splice(2)
 const argsStr = args.join(" ")
 
 if (args.length === 0) {
-  console.log("No arguments provided")
+  console.error(
+    pc.red("No arguments provided")
+  )
   process.exit(1)
 }
 
