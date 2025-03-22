@@ -4,12 +4,18 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "touch": "bun run index.ts"
+    "touch": "bun run index.ts",
+    "test": "vitest",
+    "format": "biome format",
+    "lint": "biome lint",
+    "clean": "biome clean",
+    "build": "biome build"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
-    "@types/fs-extra": "^11.0.4"
+    "@types/fs-extra": "^11.0.4",
+    "vitest": "^3.0.9"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
